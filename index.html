@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>העולם המופלא של התא 🧬</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧬</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="logo">🧬 <span>האתר של אלמה קו</span></div>
+    <nav class="main-nav">
+      <a href="#diagram">האברונים</a>
+      <a href="#mito-spotlight">מיטוכונדריה</a>
+      <a href="#flashcards">כרטיסיות</a>
+      <a href="#quiz">חידון</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="hero-badge">✨ האתר האישי של אלמה קו ✨</div>
+    <h1>העולם המופלא <span class="highlight">של התא</span></h1>
+    <p>התא הוא יחידת הבניין הקטנה ביותר של כל יצור חי – ובתוכו קורים דברים מדהימים!
+      לחצו, גלו וגלשו כדי להכיר את האברונים שבתוך התא, ובפרט את מיטוכונדריה –
+      "תחנת הכוח" הקטנה שנותנת לכם אנרגיה.</p>
+    <a href="#diagram" class="btn btn-primary">בואו נתחיל לחקור 👇</a>
+  </section>
+
+  <section id="diagram" class="section">
+    <h2>תא חי או תא צומח? לחצו על חלק כדי ללמוד עליו</h2>
+
+    <div class="toggle-group" role="group" aria-label="בחירת סוג תא">
+      <button id="animalBtn" class="toggle-btn active" data-mode="animal">🐾 תא מהחי</button>
+      <button id="plantBtn" class="toggle-btn" data-mode="plant">🌿 תא מהצומח</button>
+    </div>
+
+    <div class="diagram-wrap">
+      <svg id="cellSvg" class="cell-svg" viewBox="0 0 600 440" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="שרטוט תא">
+
+        <!-- Cell wall (plant only) -->
+        <rect class="plant-only" x="18" y="18" width="564" height="404" rx="48"
+              fill="none" stroke="#2e7d32" stroke-width="12"/>
+
+        <!-- Membrane -->
+        <rect class="organelle" data-id="membrane" x="45" y="45" width="510" height="350" rx="60"
+              fill="#fff9e3" stroke="#f3a712" stroke-width="7" tabindex="0" role="button"
+              aria-label="קרום התא"/>
+
+        <!-- cytoplasm label area is just the membrane fill; separate clickable zone -->
+        <ellipse class="organelle" data-id="cytoplasm" cx="300" cy="222" rx="200" ry="140"
+                 fill="#fff9e3" fill-opacity="0.01" tabindex="0" role="button" aria-label="ציטופלזמה"/>
+
+        <!-- Vacuole: small (animal) -->
+        <circle class="organelle animal-only" data-id="vacuole-small" cx="150" cy="330" r="22"
+                fill="#b3e5fc" stroke="#0288d1" stroke-width="3" tabindex="0" role="button" aria-label="חלולית"/>
+
+        <!-- Vacuole: large central (plant) -->
+        <ellipse class="organelle plant-only" data-id="vacuole-large" cx="330" cy="255" rx="115" ry="95"
+                 fill="#b3e5fc" stroke="#0288d1" stroke-width="4" tabindex="0" role="button" aria-label="חלולית מרכזית"/>
+
+        <!-- Lysosomes (animal only) -->
+        <g class="organelle animal-only" data-id="lysosome" tabindex="0" role="button" aria-label="ליזוזום">
+          <circle cx="135" cy="260" r="15" fill="#ef9a9a" stroke="#c62828" stroke-width="3"/>
+          <circle cx="110" cy="300" r="11" fill="#ef9a9a" stroke="#c62828" stroke-width="3"/>
+        </g>
+
+        <!-- Chloroplasts (plant only) -->
+        <g class="organelle plant-only" data-id="chloroplast" tabindex="0" role="button" aria-label="כלורופלסט">
+          <g transform="translate(95,120) rotate(-10)">
+            <ellipse rx="34" ry="19" fill="#81c784" stroke="#2e7d32" stroke-width="3"/>
+            <path d="M -20 0 Q 0 -8 20 0 M -18 7 Q 0 0 18 7 M -18 -7 Q 0 -14 18 -7" stroke="#2e7d32" stroke-width="2" fill="none"/>
+          </g>
+          <g transform="translate(490,150) rotate(15)">
+            <ellipse rx="34" ry="19" fill="#81c784" stroke="#2e7d32" stroke-width="3"/>
+            <path d="M -20 0 Q 0 -8 20 0 M -18 7 Q 0 0 18 7 M -18 -7 Q 0 -14 18 -7" stroke="#2e7d32" stroke-width="2" fill="none"/>
+          </g>
+          <g transform="translate(470,340) rotate(-20)">
+            <ellipse rx="30" ry="17" fill="#81c784" stroke="#2e7d32" stroke-width="3"/>
+            <path d="M -18 0 Q 0 -7 18 0 M -16 6 Q 0 0 16 6" stroke="#2e7d32" stroke-width="2" fill="none"/>
+          </g>
+        </g>
+
+        <!-- Mitochondria -->
+        <g class="organelle" data-id="mitochondria" tabindex="0" role="button" aria-label="מיטוכונדריה">
+          <g transform="translate(420,110) rotate(20)">
+            <ellipse rx="40" ry="23" fill="#ff8a65" stroke="#bf360c" stroke-width="3"/>
+            <path d="M -24 -6 Q -12 10 0 -6 Q 12 10 24 -6 M -24 8 Q -12 -8 0 8 Q 12 -8 24 8" stroke="#bf360c" stroke-width="2" fill="none"/>
+          </g>
+          <g transform="translate(455,240) rotate(-18)">
+            <ellipse rx="40" ry="23" fill="#ff8a65" stroke="#bf360c" stroke-width="3"/>
+            <path d="M -24 -6 Q -12 10 0 -6 Q 12 10 24 -6 M -24 8 Q -12 -8 0 8 Q 12 -8 24 8" stroke="#bf360c" stroke-width="2" fill="none"/>
+          </g>
+          <g transform="translate(400,340) rotate(45)">
+            <ellipse rx="36" ry="21" fill="#ff8a65" stroke="#bf360c" stroke-width="3"/>
+            <path d="M -22 -5 Q -11 9 0 -5 Q 11 9 22 -5 M -22 7 Q -11 -7 0 7 Q 11 -7 22 7" stroke="#bf360c" stroke-width="2" fill="none"/>
+          </g>
+        </g>
+
+        <!-- Golgi apparatus -->
+        <g class="organelle" data-id="golgi" tabindex="0" role="button" aria-label="מכשיר גולגי"
+           transform="translate(210,355)">
+          <path d="M -45 -18 Q 0 -32 45 -18" stroke="#ab47bc" stroke-width="6" fill="none" stroke-linecap="round"/>
+          <path d="M -38 -4 Q 0 -17 38 -4" stroke="#ab47bc" stroke-width="6" fill="none" stroke-linecap="round"/>
+          <path d="M -31 10 Q 0 -2 31 10" stroke="#ab47bc" stroke-width="6" fill="none" stroke-linecap="round"/>
+          <path d="M -24 24 Q 0 13 24 24" stroke="#ab47bc" stroke-width="6" fill="none" stroke-linecap="round"/>
+        </g>
+
+        <!-- Endoplasmic Reticulum -->
+        <g class="organelle" data-id="er" tabindex="0" role="button" aria-label="רשתית אנדופלזמית" stroke="#7986cb" stroke-width="4" fill="none">
+          <path d="M 290 95 Q 320 70 300 50 Q 340 45 335 80 Q 370 85 350 115 Q 380 125 355 150"/>
+          <circle cx="300" cy="52" r="3.5" fill="#303f9f" stroke="none"/>
+          <circle cx="335" cy="81" r="3.5" fill="#303f9f" stroke="none"/>
+          <circle cx="352" cy="117" r="3.5" fill="#303f9f" stroke="none"/>
+          <circle cx="355" cy="151" r="3.5" fill="#303f9f" stroke="none"/>
+          <circle cx="291" cy="96" r="3.5" fill="#303f9f" stroke="none"/>
+        </g>
+
+        <!-- Free ribosomes -->
+        <g class="organelle" data-id="ribosomes" tabindex="0" role="button" aria-label="ריבוזומים" fill="#303f9f">
+          <circle cx="230" cy="320" r="4"/>
+          <circle cx="245" cy="340" r="4"/>
+          <circle cx="400" cy="390" r="4"/>
+          <circle cx="420" cy="80" r="4"/>
+          <circle cx="150" cy="150" r="4"/>
+          <circle cx="480" cy="270" r="4"/>
+        </g>
+
+        <!-- Nucleus -->
+        <g class="organelle" data-id="nucleus" tabindex="0" role="button" aria-label="גרעין התא">
+          <circle cx="210" cy="175" r="78" fill="#b39ddb" stroke="#512da8" stroke-width="4"/>
+        </g>
+        <circle class="organelle" data-id="nucleolus" cx="210" cy="175" r="26" fill="#512da8" tabindex="0" role="button" aria-label="גרעינון"/>
+
+      </svg>
+    </div>
+
+    <div id="infoPanel" class="info-panel" aria-live="polite">
+      <div class="info-icon">👆</div>
+      <h3>לחצו על אחד מחלקי התא</h3>
+      <p>בחרו באברון בשרטוט כדי לקרוא מידע מעניין עליו.</p>
+    </div>
+  </section>
+
+  <section id="mito-spotlight" class="section spotlight">
+    <h2>⭐ הכוכבת של היום: מיטוכונדריה</h2>
+    <div class="spotlight-grid">
+      <div class="spotlight-card">
+        <div class="spotlight-emoji">🔋</div>
+        <h3>תחנת הכוח של התא</h3>
+        <p>מיטוכונדריה הופכת סוכר וחמצן לאנרגיה (ATP) שהתא יכול להשתמש בה. בלעדיה, שום תא לא היה מצליח לנוע, לגדול או לתפקד.</p>
+      </div>
+      <div class="spotlight-card">
+        <div class="spotlight-emoji">💪</div>
+        <h3>יותר אנרגיה = יותר מיטוכונדריה</h3>
+        <p>בתאי שריר, שצריכים הרבה אנרגיה לתנועה, יש הרבה יותר מיטוכונדריה מאשר בתאי עור.</p>
+      </div>
+      <div class="spotlight-card">
+        <div class="spotlight-emoji">🧬</div>
+        <h3>DNA משלה!</h3>
+        <p>בניגוד לרוב האברונים, למיטוכונדריה יש חומר תורשתי (DNA) משלה, נפרד מה-DNA שבגרעין התא.</p>
+      </div>
+      <div class="spotlight-card">
+        <div class="spotlight-emoji">👩‍👧</div>
+        <h3>ירושה מהאמא</h3>
+        <p>מיטוכונדריה עוברת בתורשה כמעט תמיד מהאמא בלבד, דרך תא הביצית.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="flashcards" class="section">
+    <h2>כרטיסיות לזכירה</h2>
+    <p class="section-sub">לחצו על כרטיסייה כדי להפוך אותה ולראות מה כתוב בצד השני</p>
+    <div id="flashcardGrid" class="flashcard-grid"></div>
+  </section>
+
+  <section id="quiz" class="section">
+    <h2>חידון: כמה זכרתם?</h2>
+    <div id="quizContainer" class="quiz-container"></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <p>האתר של אלמה קו 💜 נבנה באהבה כדי ללמוד ביולוגיה 🧫 בהצלחה בכיתה ז'!</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
